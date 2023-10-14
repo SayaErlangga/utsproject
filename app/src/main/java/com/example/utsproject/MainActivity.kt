@@ -32,6 +32,21 @@ class MainActivity : AppCompatActivity() {
 
         with(binding){
             btnRegister.setOnClickListener{
+                val bulan = arrayOf(
+                    "Januari",
+                    "Februari",
+                    "Maret",
+                    "April",
+                    "Mei",
+                    "Juni",
+                    "Juli",
+                    "Agustus",
+                    "September",
+                    "Oktober",
+                    "November",
+                    "Desember"
+                )
+
                 val intentToSecondActivity = Intent(this@MainActivity, SecondActivity::class.java)
                 val email = inputEmail.text.toString()
                 val username = inputUsername.text.toString()
@@ -43,7 +58,9 @@ class MainActivity : AppCompatActivity() {
                 val month = inputBulan.text.toString()
                 val integerMonth = month.toInt()
                 val currentYear = LocalDate.now().year
-
+                val currentMonth = LocalDate.now().monthValue
+                val currentDay = LocalDate.now().dayOfMonth
+                val tglLahir = "$day ${bulan.get(integerMonth)} $year"
                 if(email.isEmpty()){
                     Toast.makeText(this@MainActivity, "Email Belum Diisi", Toast.LENGTH_SHORT).show()
                 } else if(username.isEmpty()){
@@ -62,12 +79,18 @@ class MainActivity : AppCompatActivity() {
                     } else if (integerMonth > 12){
                         Toast.makeText(this@MainActivity, "Bulan Tidak Relevan", Toast.LENGTH_SHORT).show()
                     } else {
-                        if (currentYear - integerYear < 15){
-                            Toast.makeText(this@MainActivity, "Anda Belum Cukup Umur", Toast.LENGTH_SHORT).show()
+                        if(currentYear - integerYear >= 15){
+                            if (currentMonth - integerMonth >= 0){
+                                    intentToSecondActivity.putExtra("username", username)
+                                    intentToSecondActivity.putExtra("password", password)
+                                    intentToSecondActivity.putExtra("email", email)
+                                    intentToSecondActivity.putExtra("tglLahir", tglLahir)
+                                    startActivity(intentToSecondActivity)
+                            } else {
+                                Toast.makeText(this@MainActivity, "Anda Belum Cukup Umur", Toast.LENGTH_SHORT).show()
+                            }
                         } else {
-                            intentToSecondActivity.putExtra("username", username)
-                            intentToSecondActivity.putExtra("password", password)
-                            startActivity(intentToSecondActivity)
+                            Toast.makeText(this@MainActivity, "Anda Belum Cukup Umur", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

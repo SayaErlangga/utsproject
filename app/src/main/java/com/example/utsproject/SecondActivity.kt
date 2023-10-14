@@ -16,6 +16,8 @@ class SecondActivity : AppCompatActivity() {
 
         val usernameStore = intent.getStringExtra("username")
         val passwordStore = intent.getStringExtra("password")
+        val emailStore = intent.getStringExtra("email")
+        val tglLahirStore = intent.getStringExtra("tglLahir")
         with(binding) {
             btnLogin.setOnClickListener {
                 val intentToThirdActivity = Intent(this@SecondActivity, ThirdActivity::class.java)
@@ -39,10 +41,13 @@ class SecondActivity : AppCompatActivity() {
                     } else if (password != passwordStore) {
                         Toast.makeText(
                             this@SecondActivity,
-                            "password Anda Salah",
+                            "Password Anda Salah",
                             Toast.LENGTH_SHORT
                         ).show()
                     } else if (username == usernameStore && password == passwordStore) {
+                        intentToThirdActivity.putExtra("email", emailStore)
+                        intentToThirdActivity.putExtra("username", usernameStore)
+                        intentToThirdActivity.putExtra("tglLahir", tglLahirStore)
                         startActivity(intentToThirdActivity)
                     }
                 }

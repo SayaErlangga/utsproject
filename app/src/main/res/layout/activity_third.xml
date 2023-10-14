@@ -12,13 +12,247 @@
         android:layout_height="match_parent"
         android:padding="50dp">
 
-        <CalendarView
-            android:id="@+id/calendarView"
+        <DatePicker
+            android:id="@+id/datePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/alt_data"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/blue"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="Belum ada data"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/datePicker"
+            tools:layout_editor_absoluteX="50dp" />
+        <LinearLayout
+            android:id="@+id/layout_data"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/datePicker"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/kelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:text="Kelas"
+                android:gravity="center"
+                android:background="@color/blue"
+                android:fontFamily="@font/poppins_regular"/>
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="Tanggal Keberangkatan"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_regular"/>
+            <TextView
+                android:id="@+id/tgl_berangkat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text=""
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Stasiun Asal"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/st_asal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Stasiun Tujuan"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/st_tujuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paket Tambahan"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_regular"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Makan Siang"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/makan_siang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Sewa Porter"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/sewa_porter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Taksi ke Hotel"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/taksi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Bagasi Koper"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/bagasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Duduk Sendiri"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/duduk_sendiri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Duduk di Depan"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/duduk_depan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Extra Snack"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <TextView
+                    android:id="@+id/extra_snack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text=""
+                    android:textSize="10dp"
+                    android:fontFamily="@font/poppins_regular"/>
+            </RelativeLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
